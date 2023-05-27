@@ -55,7 +55,7 @@ data class Post(
     val repost: Repost?, // Информация о репостах записи («Рассказать друзьям»)
     val views: Views, // Информация о просмотрах записи
     val postType: String = "post", // Тип записи, может принимать следующие значения: post, copy, reply, postpone, suggest.
-    val postSource: PostSource, // Поле возвращается только для Standalone-приложений с ключом доступа, полученным в Implicit Flow.
+    val postSource: PostSource?, // Поле возвращается только для Standalone-приложений с ключом доступа, полученным в Implicit Flow.
     val geo: Geo, // Информация о местоположении
     val signerId: Int = 0, // идентификатор автора, если запись опубликована от сообщества и подписана пользователем
     val copyHistory: Any = 0, // Массив, содержащий историю репостов для записи. Возвращается только в том случае, если запись является репостом.
@@ -65,7 +65,7 @@ data class Post(
     val isPinned: Boolean = false, // информация о том, что запись закреплена
     val markedAsAds: Boolean = true, // информация о том, содержит ли запись отметку "реклама"
     val isFavorite: Boolean = true, // true, если объект добавлен в закладку у текущего пользователя
-    val donut: Donut, // Информация о записи VK Donut
+    val donut: Donut?, // Информация о записи VK Donut
     val postponedId: Boolean = false, // Идентификатор отложенной записи. Это поле возвращается тогда, когда запись стояла на таймере.
     val attachment: Array<Attachment> = emptyArray()
 )
