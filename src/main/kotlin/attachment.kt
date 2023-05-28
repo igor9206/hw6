@@ -37,19 +37,19 @@ class PresentAttachment(
 
 }
 
-class Photo(
+data class Photo(
     val id: Int,
     val albumId: Int,
     val ownerId: Int,
     val userId: Int,
     val text: String,
     val date: Int,
-    val sizes: Array<Any>,
+    val sizes: Any,
     val width: Int,
     val height: Int
 )
 
-class Audio(
+data class Audio(
     val id: Int,
     val ownerId: Int,
     val artist: String,
@@ -64,14 +64,14 @@ class Audio(
     val isHq: Boolean
 )
 
-class Video(
+data class Video(
     val id: Int,
     val ownerId: Int,
     val title: String,
     val description: String,
     val duration: Int,
-    val image: Array<Any>,
-    val firstFrame: Array<Any>,
+    val image: Any,
+    val firstFrame: Any,
     val date: Int,
     val addingDate: Int,
     val views: Int,
@@ -108,7 +108,7 @@ class Video(
     val reposts: Repost
 )
 
-class File(
+data class File(
     val id: Int,
     val ownerId: Int,
     val title: String,
@@ -120,7 +120,7 @@ class File(
     val preview: Preview
 )
 
-class Present(
+data class Present(
     val id: Int,
     val thumb256: String,
     val thumb96: String,
