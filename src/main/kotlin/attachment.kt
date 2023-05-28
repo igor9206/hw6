@@ -3,7 +3,41 @@ interface Attachment {
 }
 
 class PhotoAttachment(
-    override val type: String,
+    override val type: String = "Photo",
+    val photo: Photo
+) : Attachment {
+
+}
+
+class AudioAttachment(
+    override val type: String = "Audio",
+    val audio: Audio
+) : Attachment {
+
+}
+
+class VideoAttachment(
+    override val type: String = "Video",
+    val video: Video
+) : Attachment {
+
+}
+
+class FileAttachment(
+    override val type: String = "File",
+    val file: File
+) : Attachment {
+
+}
+
+class PresentAttachment(
+    override val type: String = "Present",
+    val present: Present
+) : Attachment {
+
+}
+
+class Photo(
     val id: Int,
     val albumId: Int,
     val ownerId: Int,
@@ -13,12 +47,9 @@ class PhotoAttachment(
     val sizes: Array<Any>,
     val width: Int,
     val height: Int
-) : Attachment {
+)
 
-}
-
-class AudioAttachment(
-    override val type: String,
+class Audio(
     val id: Int,
     val ownerId: Int,
     val artist: String,
@@ -31,12 +62,9 @@ class AudioAttachment(
     val date: Int,
     val noSearch: Boolean,
     val isHq: Boolean
-) : Attachment {
+)
 
-}
-
-class VideoAttachment(
-    override val type: String,
+class Video(
     val id: Int,
     val ownerId: Int,
     val title: String,
@@ -78,12 +106,9 @@ class VideoAttachment(
     val spectators: Int,
     val likes: Likes,
     val reposts: Repost
-) : Attachment {
+)
 
-}
-
-class FileAttachment(
-    override val type: String,
+class File(
     val id: Int,
     val ownerId: Int,
     val title: String,
@@ -93,29 +118,14 @@ class FileAttachment(
     val date: Int,
     val typeFile: Int,
     val preview: Preview
-) : Attachment {
+)
 
-}
-
-class PresentAttachment(
-    override val type: String,
+class Present(
     val id: Int,
     val thumb256: String,
     val thumb96: String,
     val thumb48: String
-) : Attachment {
-
-}
-
-class Photo()
-
-class Audio()
-
-class Video()
-
-class File()
-
-class Present()
+)
 
 data class Preview(
     val photo: Any,
