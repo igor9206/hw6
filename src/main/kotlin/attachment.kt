@@ -2,35 +2,35 @@ interface Attachment {
     val type: String
 }
 
-class PhotoAttachment(
+data class PhotoAttachment(
     override val type: String = "Photo",
     val photo: Photo
 ) : Attachment {
 
 }
 
-class AudioAttachment(
+data class AudioAttachment(
     override val type: String = "Audio",
     val audio: Audio
 ) : Attachment {
 
 }
 
-class VideoAttachment(
+data class VideoAttachment(
     override val type: String = "Video",
     val video: Video
 ) : Attachment {
 
 }
 
-class FileAttachment(
+data class FileAttachment(
     override val type: String = "File",
     val file: File
 ) : Attachment {
 
 }
 
-class PresentAttachment(
+data class PresentAttachment(
     override val type: String = "Present",
     val present: Present
 ) : Attachment {
