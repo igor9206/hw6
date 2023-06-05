@@ -9,7 +9,7 @@ object WallService {
     fun createComment(postId: Int, comment: Comment): Comment {
         for (post in posts) {
             if (post.id == postId){
-                comments += comment
+                comments += comment.copy()
                 return comments.last()
             }
         }
