@@ -1,6 +1,20 @@
+class PostNotFoundException(message: String) : RuntimeException(message)
+
 object WallService {
     private var posts = emptyArray<Post>()
     private var uniqueId: Int = 0
+
+    private var comments = emptyArray<Comment>()
+
+    fun createComment(postId: Int, comment: Comment): Comment {
+        for (post in posts) {
+            if (post.id == postId){
+                comments += comment.copy()
+                return comments.last()
+            }
+        }
+        throw PostNotFoundException("Нет поста с таким id: $postId")
+    }
 
     fun add(post: Post): Post {
         uniqueId++
@@ -38,6 +52,15 @@ object WallService {
         uniqueId = 0
     }
 }
+
+data class Comment(
+    val id: Int,
+    val fromId: Int,
+    val date: Int,
+    val text: String,
+    val replyToUser: Int,
+    val replyToComment: Int
+)
 
 data class Post(
     val id: Int = 0, // идентификатор записи
